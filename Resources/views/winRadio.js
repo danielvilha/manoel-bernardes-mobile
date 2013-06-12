@@ -3,15 +3,46 @@ Titanium.UI.iPhone.statusBarStyle = Titanium.UI.iPhone.StatusBar.TRANSLUCENT_BLA
 //Criando a janela Rádio
 var win = Titanium.UI.currentWindow;
 
+//--------------------------------------------LAYER VIEW------------------------------------------------
+//------------------------ É ADICIONADO ACTIVEINDICATOR, PLAY/PAUSE E VOLUME ---------------------------
+var layerView = Titanium.UI.createView({
+	backgroundImage : '../images/background/layer.png',
+	bottom : 15,
+	width : '90%',
+	height : 55
+});
+
+var lessLabel = Titanium.UI.createLabel({
+	text : '-',
+	color : '#FFFF',
+	font : {
+		fontSize : 45,
+		font : 'Optima-ExtraBlack'
+	},
+	left : 78
+});
+
+var moreLabel = Titanium.UI.createLabel({
+	text : '+',
+	color : '#FFFF',
+	font : {
+		fontSize : 25,
+		font : 'Optima-ExtraBlack'
+	},
+	right : 15
+});
+
+layerView.add(lessLabel);
+layerView.add(moreLabel);
+
 //---------------------------------------ACTIVITY INDICATOR---------------------------------------------
 var actInd = Titanium.UI.createActivityIndicator({
 	style : Titanium.UI.iPhone.ActivityIndicatorStyle,
 	zIndex : 9,
-	top : '85.4%',
-	left : 33
+	left : 16.5
 });
 
-win.add(actInd);
+layerView.add(actInd);
 
 function indAudio() {
 	if (audioPlayer.waiting) {
@@ -19,53 +50,52 @@ function indAudio() {
 	} else {
 		actInd.hide();
 	}
-	//console.log(audioPlayer.waiting);
 }
 
 var loopIndicator;
 
 //---------------------------------------------PLAUSE---------------------------------------------------
 var pauseResumeButton = Titanium.UI.createButton({
-	backgroundImage : '../iphone/buttons/play.png',
+	backgroundImage : '../images/button/but_Play.png',
 	enabled : false,
-	height : '10%',
-	left : 28,
-	top : '85%',
-	width : '15%'
+	height : '65%',
+	width : '15%',
+	left : 15
 });
 
-win.add(pauseResumeButton);
+layerView.add(pauseResumeButton);
 
 pauseResumeButton.addEventListener('click', function() {
 	if (audioPlayer.paused) {
-		pauseResumeButton.backgroundImage = '../iphone/buttons/pause.png';
+		pauseResumeButton.backgroundImage = '../images/button/but_Pause.png';
 		audioPlayer.start();
 	} else {
-		pauseResumeButton.backgroundImage = '../iphone/buttons/play.png';
+		pauseResumeButton.backgroundImage = '../images/button/but_Play.png';
 		audioPlayer.pause();
 	}
 });
 
 //---------------------------------------------VOLUME---------------------------------------------------
 var volumeSlider = Ti.UI.createSlider({
-	left : '35%',
-	right : 55,
-	top : '87%',
+	left : 105,
+	right : 40,
 	value : 100,
 	min : 0,
 	max : 100,
 	zIndex : 9
 });
 
-win.add(volumeSlider);
+layerView.add(volumeSlider);
 
 volumeSlider.addEventListener('change', function(e) {
 	audioPlayer.volume = e.value / 100
 });
 
+win.add(layerView);
+
 //--------------------------------------------PLAYER----------------------------------------------------
-var button = ['../iphone/buttons/but_Lounge.png', '../iphone/buttons/but_Rock.png', '../iphone/buttons/but_MPB.png', '../iphone/buttons/but_POP.png'];
-var buttonSel = ['../iphone/buttons/but_Lounge_sel.png', '../iphone/buttons/but_Rock_sel.png', '../iphone/buttons/but_MPB_sel.png', '../iphone/buttons/but_POP_sel.png'];
+var button = ['../images/button/but_Lounge.png', '../images/button/but_Rock.png', '../images/button/but_MPB.png', '../images/button/but_POP.png'];
+var buttonSel = ['../images/button/but_Lounge_sel.png', '../images/button/but_Rock_sel.png', '../images/button/but_MPB_sel.png', '../images/button/but_POP_sel.png'];
 var title = ['Jazz Lounge', 'Rock', 'MPB', 'POP'];
 var startStopButton = [];
 var cont = 25;
@@ -120,20 +150,20 @@ for (var i = 0, s = button.length; i < s; i++) {
 					clearInterval(loopIndicator);
 					audioPlayer.stop();
 					e.source.backgroundImage = e.source.button;
-					pauseResumeButton.backgroundImage = '../iphone/buttons/play.png';
+					pauseResumeButton.backgroundImage = '../images/button/but_Play.png';
 					pauseResumeButton.enabled = false;
 				} else {
 					audioPlayer.stop();
 					audioPlayer.url = e.source.urlStream;
 					e.source.backgroundImage = e.source.buttonSel;
-					pauseResumeButton.backgroundImage = '../iphone/buttons/pause.png';
+					pauseResumeButton.backgroundImage = '../images/button/but_Pause.png';
 					pauseResumeButton.enabled = true;
 					audioPlayer.start();
 				}
 			} else {
 				audioPlayer.url = e.source.urlStream;
 				e.source.backgroundImage = e.source.buttonSel;
-				pauseResumeButton.backgroundImage = '../iphone/buttons/pause.png';
+				pauseResumeButton.backgroundImage = '../images/button/but_Pause.png';
 				pauseResumeButton.enabled = true;
 				audioPlayer.start();
 				loopIndicator = setInterval(indAudio, 100);

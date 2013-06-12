@@ -12,7 +12,7 @@ var tabGroup = Titanium.UI.createTabGroup();
 var winRadio = Titanium.UI.createWindow({
 	navBarHidden : true,
 	orientationModes : [Ti.UI.PORTRAIT],
-	backgroundImage : 'iphone/backgrounds/backgroundRadio.png',
+	backgroundImage : 'images/background/background.png',
 	url : 'views/winRadio.js'
 });
 var tabRadio = Titanium.UI.createTab({
@@ -25,7 +25,8 @@ var tabRadio = Titanium.UI.createTab({
 var winModa = Titanium.UI.createWindow({
 	navBarHidden : true,
 	orientationModes : [Ti.UI.PORTRAIT],
-	backgroundImage : 'iphone/backgrounds/background.png',
+	// backgroundImage : 'images/background/background.png',
+	backgroundColor : '#201f20',
 	url : 'views/winModa.js'
 });
 
@@ -54,7 +55,7 @@ var winItTips = Titanium.UI.createWindow({
 	title : 'It Tips',
 	navBarHidden : true,
 	orientationModes : [Ti.UI.PORTRAIT],
-	backgroundImage : 'iphone/backgrounds/background.png',
+	backgroundImage : 'images/background/background.png',
 	url : 'views/winItTips.js',
 	animated : true
 });

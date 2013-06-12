@@ -50,7 +50,7 @@ var telefone = Ti.UI.createLabel({
 
 var btFone = Titanium.UI.createButton({
 	title : 'Clique aqui para entrar em contato',
-	backgroundImage : '../iphone/buttons/button_map.png',
+	backgroundImage : '../images/button/button_map.png',
 	borderRadius : 13,
 	font : {
 		fontSize : 18,
@@ -94,7 +94,7 @@ var mapa = Titanium.UI.createButton({
 		// fontFamily : 'Baskerville-Italic'
 		// fontFamily : 'HelveticaNeue-UltraLight'
 	},
-	backgroundImage : '../iphone/buttons/button_map.png',
+	backgroundImage : '../images/button/button_map.png',
 	borderRadius : 13,
 	top : 25,
 	height : 50,

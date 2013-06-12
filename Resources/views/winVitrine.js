@@ -4,11 +4,11 @@ Titanium.UI.iPhone.statusBarStyle = Titanium.UI.iPhone.StatusBar.TRANSLUCENT_BLA
 var win = Titanium.UI.currentWindow;
 
 var viewModa = Ti.UI.createView({
-	backgroundImage : '../iphone/vitrine/1.png'
+	backgroundImage : '../images/Vitrine.jpg'
 });
 
 var buttonFlip = Ti.UI.createButton({
-	backgroundImage : '../iphone/buttons/More.png',
+	backgroundImage : '../images/button/but_More.png',
 	bottom : 30,
 	right : 30,
 	height : 30,
@@ -26,7 +26,7 @@ buttonFlip.addEventListener('click', function() {
 	});
 
 	var labelTitle = Ti.UI.createLabel({
-		text : 'Poesia, identidade e raízes',
+		text : 'Delicados Arranjos',
 		font : {
 			fontSize : 22,
 			// fontFamily : 'HoeflerText-Italic'
@@ -44,7 +44,7 @@ buttonFlip.addEventListener('click', function() {
 	view.add(labelTitle);
 
 	var label = Ti.UI.createLabel({
-		text : 'A prosa poética de João Guimarães Rosa (1908-1967), seus sertões e veredas, foram a inspiração para essa linha especial. Os desenhos da coleção fazem referência direta ao universo revelado pelo escritor, expressando a tradição dos vaqueiros, dos encourados, aliados a linhas femininas delicadas.',
+		text : 'Ouro, diamantes e pedras preciosas podem se transformar em surpresas inesquecíveis quando flores e folhas formam românticos buquês, revelando um jeito feminino de ser.',
 		font : {
 			fontSize : 16,
 			// fontFamily : 'HoeflerText-Italic'
@@ -62,7 +62,7 @@ buttonFlip.addEventListener('click', function() {
 	view.add(label);
 
 	var buttonFlip = Ti.UI.createButton({
-		backgroundImage : '../iphone/buttons/Less.png',
+		backgroundImage : '../images/button/but_Less.png',
 		bottom : 78,
 		right : 30,
 		height : 30,
